@@ -24,25 +24,12 @@ var randomName = require('./randomname');
 // Create Express webapp.
 var app = express();
 
-// Set up the paths for the examples.
-[
-  'bandwidthconstraints',
-  'codecpreferences',
-  'localvideofilter',
-  'localvideosnapshot',
-  'mediadevices'
-].forEach(function(example) {
-  var examplePath = path.join(__dirname, `../examples/${example}/public`);
-  app.use(`/${example}`, express.static(examplePath));
-});
+ 
 
 // Set up the path for the quickstart.
 var quickstartPath = path.join(__dirname, '../quickstart/public');
 app.use('/quickstart', express.static(quickstartPath));
-
-// Set up the path for the examples page.
-var examplesPath = path.join(__dirname, '../examples');
-app.use('/examples', express.static(examplesPath));
+ 
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
